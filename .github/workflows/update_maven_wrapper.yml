@@ -6,6 +6,7 @@ on:
     branches:
       - master
     paths-ignore:
+      - 'src/**'
       - 'README*'
       - 'LICENSE*'
       - '.github/workflows/build.yml'
@@ -27,5 +28,5 @@ jobs:
           git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
           git add mvnw mvnw.cmd
-          git commit -am "Update Maven Wrapper" || true
-          git push --force origin HEAD:$GITHUB_REF || true
+          git commit -m "Update Maven Wrapper" || true
+          git push origin HEAD:$GITHUB_REF || true
